@@ -1,14 +1,14 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  name: fedora-sample-pipeline
+  name: fedora-sample
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
       kind: DataVolume
       metadata:
         creationTimestamp: null
-        name: fedora-sample-pipeline
+        name: fedora-sample
       spec:
         sourceRef:
           kind: DataSource
@@ -27,7 +27,7 @@ spec:
         vm.kubevirt.io/workload: server
       creationTimestamp: null
       labels:
-        kubevirt.io/domain: fedora-sample-pipeline
+        kubevirt.io/domain: fedora-sample
         kubevirt.io/size: small
     spec:
       architecture: amd64
@@ -67,7 +67,7 @@ spec:
       terminationGracePeriodSeconds: 180
       volumes:
         - dataVolume:
-            name: fedora-sample-pipeline
+            name: fedora-sample
           name: rootdisk
         - cloudInitConfigDrive:
             userData: |-
